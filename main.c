@@ -1,24 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/04 16:58:57 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/04 18:26:25 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# define SPEC "sSpdDioOuUxXcC"
+#include "ft_printf.h"
+#include <stdio.h>
 
-# include "libft.h"
-# include <stdarg.h>
+int	main(void)
+{
+	// char a[] = "Hello world";
 
-int	ft_printf(const char *format, ...);
-int	ft_find_types(char format);
-int	ft_init_flags(char *format, int i);
-
-#endif
+	ft_printf("ft_printf %%\n");
+	printf("printf: %d\n", 2147483647);
+	return (0);
+}
