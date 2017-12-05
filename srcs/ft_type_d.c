@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_type_d.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/05 14:38:32 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/05 05:03:44 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
-# define SPEC "sSpdDioOuUxXcC"
+#include "ft_printf.h"
 
-# include "libft.h"
-# include <stdarg.h>
-# include <stdio.h>
-
-int		ft_printf(const char *format, ...);
-int		ft_find_types(char format);
-int		ft_init_flags(char *format, int i, va_list	argstr);
-void	ft_type_d(int type_d);
-void	ft_type_s(char *s);
-void	ft_type_c(char c);
-
-#endif
+void	ft_type_d(int type_d)
+{
+	ft_putnbr(type_d);
+}

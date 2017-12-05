@@ -6,23 +6,23 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/04 19:14:25 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/05 14:42:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_init_flags(char *format, int i)
+int	ft_init_flags(char *format, int i, va_list argstr)
 {
-	int		j;
-	char	*a;
-
-	a = SPEC;
 	if (format[i] == '%')
 		i++;
-	j = 0;
-	while (a[j] != '\0')
-		if (a[j] == format[i])
-			return ()
+	if (format[i] == '%')
+		return (i);
+	if (format[i] == 'd' || format[i] == 'D' || format[i] == 'i')
+		ft_type_d(va_arg(argstr, int));
+	else if (format[i] == 's')
+		ft_type_s(va_arg(argstr, char *));
+	else if (format[i] == 'c')
+		ft_type_c(va_arg(argstr, int));
 	return (i);
 }

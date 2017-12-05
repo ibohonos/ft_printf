@@ -6,18 +6,15 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/04 18:26:25 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/05 14:45:39 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int	main(void)
 {
-	// char a[] = "Hello world";
-
-	ft_printf("ft_printf %%\n");
-	printf("printf: %d\n", 2147483647);
+	ft_printf("ft_printf\t%%d\t%d\t%s\t%c\t%i\n", 123, "Hello world!", 'g', 987);
+	printf("printf:\t\t%%d\t%d\t%s\t%c\t%i\n", 123, "Hello world!", 'g', 987);
 	return (0);
 }
