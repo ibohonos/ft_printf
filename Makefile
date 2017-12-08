@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 16:05:53 by ibohonos          #+#    #+#              #
-#    Updated: 2017/12/05 14:35:22 by ibohonos         ###   ########.fr        #
+#    Updated: 2017/12/08 00:03:46 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ INCL_DIR 	= ./includes
 WITH_LIBFT	= -I libft/includes -L libft/ -lft
 OBJ 		= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 SRC 		= ft_printf.c ft_find_types.c ft_init_flags.c ft_type_d.c \
-				ft_type_s.c ft_type_c.c
+				ft_type_s.c ft_type_c.c ft_init_modific.c ft_type_f.c
 
 all: $(NAME)
 

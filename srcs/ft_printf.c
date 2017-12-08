@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:35:49 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/05 14:31:11 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/08 11:57:39 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,10 @@ int	ft_printf(const char *format, ...)
 			break ;
 		if (str[i] != '%' && str[i])
 			ft_putchar(str[i]);
-		if (str[i] == '%' && ft_find_types(str[i + 1]) > 0)
-			i = ft_init_flags(str, i, argstr);
+		if (str[i] == '%' && ft_find_types(str[i + 1]) == 2)
+			i = ft_init_modific(str, ++i, argstr);
+		if (str[i] == '%' && ft_find_types(str[i + 1]) == 1)
+			i = ft_init_flags(str, ++i, argstr);
 		i++;
 	}
 	va_end(argstr);
