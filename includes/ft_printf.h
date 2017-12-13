@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/08 11:55:19 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/13 15:54:37 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@
 # define BONUS_SPEC "eEfFgGaAn"
 # define MODIFIERS "#0-+ "
 
-# include "libft.h"
+# include <unistd.h>
+# include <stdlib.h>
 # include <stdarg.h>
 # include <stdio.h>
 
+void	ft_putchar(char c);
+void	ft_putnbr(int n);
+void	ft_putstr(char const *s);
+void	ft_strdel(char **as);
+char	*ft_strnew(size_t size);
 int		ft_printf(const char *format, ...);
 int		ft_find_types(char format);
 int		ft_init_flags(char *format, int i, va_list	argstr);

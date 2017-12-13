@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/30 18:40:54 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/10/30 18:40:57 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/30 18:41:53 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/13 15:52:04 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putchar(char c)
+void	ft_putstr(char const *s)
 {
-	write(1, &c, 1);
+	if (s)
+		while (*s)
+			ft_putchar((char)*s++);
 }

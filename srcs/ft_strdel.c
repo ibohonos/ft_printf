@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_strdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/27 18:08:51 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/28 16:46:00 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/27 18:12:57 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/13 15:52:09 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-char	*ft_strnew(size_t size)
+void	ft_strdel(char **as)
 {
-	return ((char *)ft_memalloc(size + 1));
+	if (as)
+	{
+		*as = NULL;
+		free(*as);
+	}
 }

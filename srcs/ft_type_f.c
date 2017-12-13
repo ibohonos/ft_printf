@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 00:01:35 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/08 12:52:15 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/13 17:04:47 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_type_f(double type_f)
 	x = type_f;
 	type_f -= x;
 	len = c + 1 + accuracy;
-	a = ft_strnew(len + 1);
+	a = (char *)malloc(sizeof(char) * (len + 1));
 	a[c] = '.';
 	a[len] = '\0';
 	c1 = c + 1;
@@ -53,5 +53,4 @@ void	ft_type_f(double type_f)
 		type_f -= x;
 	}
 	ft_putstr(a);
-	ft_strdel(&a);
 }

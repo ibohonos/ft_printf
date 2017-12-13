@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/24 22:14:44 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/11/06 19:53:17 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/30 18:54:46 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/13 15:51:38 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_putnbr(int n)
 {
-	size_t			i;
-	unsigned char	*s;
-	unsigned char	*d;
-
-	s = (unsigned char *)s1;
-	d = (unsigned char *)s2;
-	i = 0;
-	while (i < n)
+	if (n == -2147483648)
+		ft_putstr("-2147483648");
+	else if (n < 0)
 	{
-		if (s[i] > d[i] || s[i] < d[i])
-		{
-			return (s[i] - d[i]);
-		}
-		else
-			i++;
+		ft_putchar('-');
+		ft_putnbr(-n);
 	}
-	return (0);
+	else if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putchar(n % 10 + '0');
+	}
+	else
+		ft_putchar(n + '0');
 }

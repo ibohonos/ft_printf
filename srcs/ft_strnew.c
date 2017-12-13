@@ -1,21 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/10/26 19:31:55 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/10/26 19:31:57 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/27 18:08:51 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/13 15:52:51 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-int	ft_isalnum(int c)
+char	*ft_strnew(size_t size)
 {
-	if ((c >= '0' && c <= '9') || (c >= 'a' && c <= 'z')
-		|| (c >= 'A' && c <= 'Z'))
-		return (1);
-	return (0);
+	return ((char *)malloc(sizeof(char) * (size + 1)));
 }
