@@ -12,7 +12,17 @@
 
 #include "ft_printf.h"
 
-void	ft_type_f(double type_f)
+static int		ft_strlen(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	ft_type_f(double type_f, t_struct *p)
 {
 	char	*a;
 	int		c;
@@ -53,4 +63,5 @@ void	ft_type_f(double type_f)
 		type_f -= x;
 	}
 	ft_putstr(a);
+	p->ret_len += ft_strlen(a);
 }

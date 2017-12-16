@@ -12,7 +12,8 @@
 
 #include "ft_printf.h"
 
-void	ft_type_c(char c)
+void	ft_type_c(char c, t_struct *p)
 {
 	ft_putchar(c);
+	p->ret_len += 1;
 }

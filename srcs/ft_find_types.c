@@ -12,45 +12,24 @@
 
 #include "ft_printf.h"
 
-int	ft_find_types(char format)
+int	ft_find_types(char format, int i)
 {
-	int		i;
-	char	*a;
-
-	a = ft_strnew(14);
-	a[14] = '\0';
-	a = SPEC;
-	i = 0;
-	while (a[i] != '\0')
-	{
-		if (a[i] == format)
+	while (SPEC[++i] != '\0')
+		if (SPEC[i] == format)
 			return (1);
-		else
-			i++;
-	}
-	ft_strdel(&a);
-	a = ft_strnew(5);
-	a[5] = '\0';
-	a = MODIFIERS;
-	i = 0;
-	while (a[i] != '\0')
-	{
-		if (a[i] == format)
+		// else
+			// i++;
+	i = -1;
+	while (FLAGS[++i] != '\0')
+		if (FLAGS[i] == format)
 			return (2);
-		else
-			i++;
-	}
-	ft_strdel(&a);
-	a = ft_strnew(9);
-	a[9] = '\0';
-	a = BONUS_SPEC;
-	i = 0;
-	while (a[i] != '\0')
-	{
-		if (a[i] == format)
+	i = -1;
+	while (BONUS_SPEC[++i] != '\0')
+		if (BONUS_SPEC[i] == format)
 			return (1);
-		else
-			i++;
-	}
+	i = -1;
+	while (MODIFICATORS[++i] != '\0')
+		if (MODIFICATORS[i] == format)
+			return 3;
 	return (0);
 }

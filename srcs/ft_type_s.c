@@ -12,7 +12,18 @@
 
 #include "ft_printf.h"
 
-void	ft_type_s(char *s)
+static int		ft_strlen(char *s)
+{
+	int i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+void	ft_type_s(char *s, t_struct *p)
 {
 	ft_putstr(s);
+	p->ret_len += ft_strlen(s);
 }

@@ -14,12 +14,32 @@
 # define FT_PRINTF_H
 # define SPEC "sSpdDioOuUxXcC"
 # define BONUS_SPEC "eEfFgGaAn"
-# define MODIFIERS "#0-+ "
+# define MODIFICATORS "hljz"
+# define FLAGS "#0-+ "
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
 # include <stdio.h>
+
+typedef struct  s_struct
+{
+    int			sharp;
+	int			zero;
+	int			minus;
+	int			plus;
+	int			space;
+	int			width;
+	int			precision;
+	int			spec_hh;
+	int			spec_h;
+	int			spec_l;
+	int			spec_ll;
+	int			spec_j;
+	int			spec_z;
+    char        *buffer;
+    int         ret_len;
+}               t_struct;
 
 void	ft_putchar(char c);
 void	ft_putnbr(int n);
@@ -27,12 +47,13 @@ void	ft_putstr(char const *s);
 void	ft_strdel(char **as);
 char	*ft_strnew(size_t size);
 int		ft_printf(const char *format, ...);
-int		ft_find_types(char format);
-int		ft_init_flags(char *format, int i, va_list	argstr);
-int		ft_init_modific(char *str, int i, va_list argstr);
-void	ft_type_d(int type_d);
-void	ft_type_s(char *s);
-void	ft_type_c(char c);
-void	ft_type_f(double type_f);
+int		ft_find_types(char format, int i);
+int		ft_init_specific(char *format, int i, va_list argstr, t_struct *p);
+int		ft_init_modific(char *str, int i, va_list argstr, t_struct *p);
+int     ft_init_flags(char *str, int i, va_list argstr, t_struct *p);
+void	ft_type_d(int type_d, t_struct *p);
+void	ft_type_s(char *s, t_struct *p);
+void	ft_type_c(char c, t_struct *p);
+void	ft_type_f(double type_f, t_struct *p);
 
 #endif
