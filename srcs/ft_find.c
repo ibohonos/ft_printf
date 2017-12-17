@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_types.c                                    :+:      :+:    :+:   */
+/*   ft_find.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:49:17 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/17 00:03:07 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/17 23:23:55 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/18 00:12:31 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_find_types(char format, int i)
+int	ft_find(char *s, int *i, char c)
 {
-	while (SPEC[++i] != '\0')
-		if (SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (FLAGS[++i] != '\0')
-		if (FLAGS[i] == format)
-			return (2);
-	i = -1;
-	while (BONUS_SPEC[++i] != '\0')
-		if (BONUS_SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (MODIFICATORS[++i] != '\0')
-		if (MODIFICATORS[i] == format)
-			return (3);
-	return (0);
+	int count;
+
+	count = 0;
+	while (s[*(++i)] && !ft_find_types(s[*i], -1) != 1)
+		if (s[*i] == c)
+			count++;
+	return (count);
 }

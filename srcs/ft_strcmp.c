@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_types.c                                    :+:      :+:    :+:   */
+/*   ft_strcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:49:17 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/17 00:03:07 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/26 17:52:07 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/17 01:16:51 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_find_types(char format, int i)
+int	ft_strcmp(const char *s1, const char *s2)
 {
-	while (SPEC[++i] != '\0')
-		if (SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (FLAGS[++i] != '\0')
-		if (FLAGS[i] == format)
-			return (2);
-	i = -1;
-	while (BONUS_SPEC[++i] != '\0')
-		if (BONUS_SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (MODIFICATORS[++i] != '\0')
-		if (MODIFICATORS[i] == format)
-			return (3);
+	unsigned char *p1;
+	unsigned char *p2;
+
+	p1 = (unsigned char *)s1;
+	p2 = (unsigned char *)s2;
+	if (*p1 == '\0')
+		return (*p1 - *p2);
+	while (*p1 || *p2)
+	{
+		if (*p1 == *p2)
+		{
+			p1++;
+			p2++;
+		}
+		else
+			return (*p1 - *p2);
+	}
 	return (0);
 }

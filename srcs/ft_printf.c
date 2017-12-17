@@ -6,30 +6,11 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:35:49 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/08 11:57:39 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/18 00:05:30 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-void	init_default_all(t_struct *p)
-{
-	p->sharp = -1;
-	p->zero = -1;
-	p->minus = -1;
-	p->plus = -1;
-	p->space = -1;
-	p->width = -1;
-	p->precision = -1;
-	p->spec_hh = 0;
-	p->spec_h = 0;
-	p->spec_l = 0;
-	p->spec_ll = 0;
-	p->spec_j = 0;
-	p->spec_z = 0;
-    p->buffer = (char*)malloc(sizeof(char) * 1);
-    p->ret_len = 0;
-}
 
 int	ft_printf(const char *format, ...)
 {
@@ -38,33 +19,31 @@ int	ft_printf(const char *format, ...)
 	char	*str;
 	int		i;
 
-	init_default_all(&p);
+	ft_init_default_all(&p);
 	va_start(argstr, format);
-	str = (char*)format;
+	str = (char *)format;
 	i = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '%' && str[i + 1] == '%')
 		{
-			p.ret_len += 1;
+			p.ret_len++;
 			i++;
 			ft_putchar(str[i++]);
 		}
-		// if (str[i] == '%' && str[i + 1] == '\n')  some trubles
-		// 	i++;
 		if (str[i] == '%' && str[i + 1] == '\0')
 			break ;
 		if (str[i] != '%' && str[i])
 		{
 			ft_putchar(str[i]);
-			p.ret_len += 1;
+			p.ret_len++;
 		}
 		if (str[i] == '%' && ft_find_types(str[i + 1], -1) == 1)
 			i = ft_init_specific(str, ++i, argstr, &p);
 		if (str[i] == '%' && ft_find_types(str[i + 1], -1) == 2)
-			i = ft_init_modific(str, ++i, argstr, &p);
+			i = ft_init_modific(str, ++i, &p);
 		if (str[i] == '%' && ft_find_types(str[i + 1], -1) == 3)
-			i = ft_init_flags(str, ++i, argstr, &p);
+			i = ft_init_flags(str, ++i, &p);
 		i++;
 	}
 	va_end(argstr);

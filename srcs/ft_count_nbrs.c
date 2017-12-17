@@ -1,33 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_types.c                                    :+:      :+:    :+:   */
+/*   ft_count_nbrs.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:49:17 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/17 00:03:07 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/17 00:57:05 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/17 02:10:25 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
-
-int	ft_find_types(char format, int i)
+int	ft_count_nbrs(int nbr)
 {
-	while (SPEC[++i] != '\0')
-		if (SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (FLAGS[++i] != '\0')
-		if (FLAGS[i] == format)
-			return (2);
-	i = -1;
-	while (BONUS_SPEC[++i] != '\0')
-		if (BONUS_SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (MODIFICATORS[++i] != '\0')
-		if (MODIFICATORS[i] == format)
-			return (3);
-	return (0);
+	int i;
+
+	i = 0;
+	if (nbr < 0)
+	{
+		nbr *= -1;
+		i++;
+	}
+	while (nbr > 9)
+	{
+		nbr /= 10;
+		i++;
+	}
+	return (++i);
 }

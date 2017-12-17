@@ -5,18 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/13 13:58:31 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/17 00:01:06 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/17 23:40:22 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_init_flags(char *str, int i, va_list argstr, t_struct *p)
+int	ft_init_flags(char *str, int i, t_struct *p)
 {
-    p->ret_len += 1;
-	argstr = NULL;
-	if (str[i] == ' ')
-		return (i);
+	if (str[i] == ' ' && p->plus == -1)
+		p->space = 1;
+	else if (str[i] == '+')
+	{
+		p->plus = 1;
+		p->space = -1;
+	}
+	else if (str[i] == '-')
+	{
+		p->minus = 1;
+		p->zero = -1;
+	}
+	else if (str[i] == '#')
+		p->sharp = 1;
+	else if (str[i] == '0' && p->precision == -1 && p->minus == -1)
+		p->zero = 1;
 	return (i);
 }

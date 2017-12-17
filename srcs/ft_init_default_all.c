@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find_types.c                                    :+:      :+:    :+:   */
+/*   ft_init_default_all.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/03 17:49:17 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/17 00:03:07 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/17 00:24:09 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/18 00:16:59 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_find_types(char format, int i)
+void	ft_init_default_all(t_struct *p)
 {
-	while (SPEC[++i] != '\0')
-		if (SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (FLAGS[++i] != '\0')
-		if (FLAGS[i] == format)
-			return (2);
-	i = -1;
-	while (BONUS_SPEC[++i] != '\0')
-		if (BONUS_SPEC[i] == format)
-			return (1);
-	i = -1;
-	while (MODIFICATORS[++i] != '\0')
-		if (MODIFICATORS[i] == format)
-			return (3);
-	return (0);
+	p->sharp = -1;
+	p->zero = -1;
+	p->minus = -1;
+	p->plus = -1;
+	p->space = -1;
+	p->width = -1;
+	p->precision = -1;
+	p->spec_h = 0;
+	p->spec_hh = 0;
+	p->spec_l = 0;
+	p->spec_ll = 0;
+	p->spec_j = 0;
+	p->spec_z = 0;
+	p->buffer = NULL;
+	p->ret_len = 0;
 }
