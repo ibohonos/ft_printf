@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/20 19:25:43 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/21 20:37:13 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,13 @@ int	main(void)
 	j = printf("it:printf:\n%%d\t%d\n%%s\t%s\n\
 %%c\t%c\n%%i\t%i\n%%d\t%d\n%%f\t%f\n%%9d\t%9d\n%%.14d\t%.14d\n\n",
 123, "Hello world!", 'g', 987, 0x41, 16.04, 4568, 17);
-	ft_printf("%%");
-	printf("\n");
+	// ft_printf("%%");
+	// printf("\n");
 	// i = ft_printf("%\n");
 	// j = printf("%\n");
 	printf("i = %d\nj = %d\n", i, j);
-	printf("%s\n", ft_itoa_base(254, 16));
+	// printf("%s\n", ft_itoa_base(254, 16));
+	printf("%d\n", ft_printf("%.2d", 4242));
+	printf("%d\n", printf("\n%.2d", 4242));
 	return (0);
 }

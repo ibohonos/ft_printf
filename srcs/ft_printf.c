@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:35:49 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/21 02:52:48 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/21 18:34:40 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	ft_printf(const char *format, ...)
 	va_start(argstr, format);
 	str = (char *)format;
 	i = 0;
+	p.ret_len = 0;
 	while (str[i] != '\0')
 	{
 		ft_init_default_all(&p);

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 00:24:09 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/18 00:16:59 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/21 18:34:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,4 @@ void	ft_init_default_all(t_struct *p)
 	p->spec_j = 0;
 	p->spec_z = 0;
 	p->buffer = NULL;
-	p->ret_len = 0;
 }
