@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 16:05:53 by ibohonos          #+#    #+#              #
-#    Updated: 2017/12/17 23:23:49 by ibohonos         ###   ########.fr        #
+#    Updated: 2017/12/20 17:46:22 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,11 @@ SRC_DIR 	= ./srcs
 INCL_DIR 	= ./includes
 OBJ 		= $(addprefix $(OBJ_DIR)/,$(SRC:.c=.o))
 SRC 		= ft_putchar.c ft_putnbr.c ft_putstr.c ft_strdel.c ft_strnew.c \
-				ft_atoi.c ft_strcmp.c\
+				ft_atoi.c ft_strcmp.c ft_strstr.c ft_strdup.c\
 				ft_printf.c ft_find_types.c ft_init_flags.c ft_type_d.c \
 				ft_type_s.c ft_type_c.c ft_init_modific.c ft_type_f.c \
 				ft_init_specific.c ft_init_default_all.c ft_count_nbrs.c \
-				ft_find.c
+				ft_find.c ft_itoa_base.c ft_init_precision.c ft_init_width.c
 
 all: $(NAME)
 
@@ -45,10 +45,9 @@ fclean: clean
 
 re: fclean all
 
-main:
-	make re
+main: re
 	$(CC) $(FLAGS) -I $(INCL_DIR) -o main.o -c main.c
 	$(CC) $(FLAGS) main.o $(NAME) -I $(INCL_DIR) -o ft_printf
 
-main_fclean:
+main_fclean: fclean
 	/bin/rm -f main.o ft_printf

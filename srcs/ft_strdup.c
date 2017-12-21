@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_find.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/17 23:23:55 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/20 19:48:16 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/24 22:55:34 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/18 20:59:01 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_find(char *s, int *i, char c)
+char	*ft_strdup(const char *s)
 {
-	int count;
+	int		i;
+	char	*t;
 
-	count = 0;
-	while (s[*i] && ft_find_types(s[*i], -1) != 1)
-		if (s[*(i++)] == c)
-			count++;
-	return (count);
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	t = (char *)malloc(sizeof(char) * i + 1);
+	if (t == NULL)
+		return (NULL);
+	i = 0;
+	while (s[i] != '\0')
+	{
+		t[i] = s[i];
+		i++;
+	}
+	t[i] = '\0';
+	return (t);
 }

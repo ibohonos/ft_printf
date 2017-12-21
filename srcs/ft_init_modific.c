@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:57:39 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/18 00:19:53 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/20 17:20:29 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int	ft_init_modific(char *str, int i, t_struct *p)
 		p->spec_l = 0;
 		p->spec_ll = 1;
 	}
-	if (ft_strstr(s, 'j'))
+	if (ft_strstr(str, "j"))
 		p->spec_j = 1;
-	if (ft_strstr(s, 'z'))
+	if (ft_strstr(str, "z"))
 		p->spec_z = 1;
 	return (i);
 }

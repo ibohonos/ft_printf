@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/18 00:12:48 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/20 17:46:17 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void			ft_putnbr(int n);
 void			ft_putstr(char const *s);
 void			ft_strdel(char **as);
 char			*ft_strnew(size_t size);
+char			*ft_strdup(const char *s);
+char			*ft_strstr(const char *str1, const char *str2);
 void			ft_init_default_all(t_struct *p);
 int				ft_count_nbrs(int nbr);
 int				ft_printf(const char *format, ...);
@@ -62,5 +64,8 @@ void			ft_type_d(int type_d, t_struct *p);
 void			ft_type_s(char *s, t_struct *p);
 void			ft_type_c(char c, t_struct *p);
 void			ft_type_f(double type_f, t_struct *p);
+char			*ft_itoa_base(intmax_t n, int base);
+int				ft_init_precision(char *s, int i, t_struct *p);
+int				ft_init_width(char *s, int i, t_struct *p);
 
 #endif

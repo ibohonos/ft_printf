@@ -1,2 +1,7 @@
 .DS_Store
+*.DS_Store
 .vscode/
+ft_printf
+libftprintf.a
+main.o
+obj/
