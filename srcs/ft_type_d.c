@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/22 12:33:44 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/22 17:18:47 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,6 @@ int		ft_count_nbr(int nbr)
 
 void	ft_type_d(int type_d, t_struct *p)
 {
-	int i;
-
-	i = 0;
 	if (p->minus == -1)
 		ft_print_width(p, ft_count_nbr(type_d));
 	ft_putnbr(type_d);

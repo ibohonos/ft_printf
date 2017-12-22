@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 17:49:17 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/22 13:13:28 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/22 16:22:12 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int	ft_find_types(char format, int i)
 		if (FLAGS[i] == format)
 			return (1);
 	if (format >= '0' && format <= '9')
-	{
 		return (2);
-	}
 	if (format == '.')
 		return (3);
 	i = -1;
