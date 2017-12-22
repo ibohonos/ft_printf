@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/21 20:30:26 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/22 12:33:44 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,31 +38,11 @@ void	ft_type_d(int type_d, t_struct *p)
 	int i;
 
 	i = 0;
-	if (p->width != -1 && p->minus == -1)
-	{
-		i = p->width - ft_count_nbr(type_d);
-		while (i-- > 0)
-			ft_putchar(' ');
-	}
-	else if (p->precision != -1 && p->minus == -1)
-	{
-		i = p->precision - ft_count_nbr(type_d);
-		while (i-- > 0)
-			ft_putchar('0');
-	}
+	if (p->minus == -1)
+		ft_print_width(p, ft_count_nbr(type_d));
 	ft_putnbr(type_d);
-	if (p->width != -1 && p->minus != -1)
-	{
-		i = p->width - ft_count_nbr(type_d);
-		while (i-- > 0)
-			ft_putchar(' ');
-	}
-	else if (p->precision != -1 && p->minus != -1)
-	{
-		i = p->precision - ft_count_nbr(type_d);
-		while (i-- > 0)
-			ft_putchar('0');
-	}
+	if (p->minus != -1)
+		ft_print_width(p, ft_count_nbr(type_d));
 	if (p->width == -1 && p->precision == -1)
 		p->ret_len += ft_count_nbr(type_d);
 }

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 20:16:27 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/20 18:14:20 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/22 13:02:18 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,11 @@
 
 int	ft_init_width(char *s, int i, t_struct *p)
 {
+	printf("\ns[i] = %c\n", s[i]);
 	if (s[i] >= '0' && s[i] <= '9')
 	{
+		if (s[i] == '0')
+			p->zero = 1;
 		p->width = ft_atoi(s + i);
 		while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
 			i++;

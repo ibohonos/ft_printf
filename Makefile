@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 16:05:53 by ibohonos          #+#    #+#              #
-#    Updated: 2017/12/20 17:46:22 by ibohonos         ###   ########.fr        #
+#    Updated: 2017/12/22 12:23:58 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,8 @@ SRC 		= ft_putchar.c ft_putnbr.c ft_putstr.c ft_strdel.c ft_strnew.c \
 				ft_printf.c ft_find_types.c ft_init_flags.c ft_type_d.c \
 				ft_type_s.c ft_type_c.c ft_init_modific.c ft_type_f.c \
 				ft_init_specific.c ft_init_default_all.c ft_count_nbrs.c \
-				ft_find.c ft_itoa_base.c ft_init_precision.c ft_init_width.c
+				ft_find.c ft_itoa_base.c ft_init_precision.c ft_init_width.c \
+				ft_print_width.c
 
 all: $(NAME)
 
