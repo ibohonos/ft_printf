@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/10/31 19:53:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/20 14:02:59 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/23 17:13:49 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	ft_count_numb(uintmax_t i, int minus, int base)
 	int		j;
 
 	j = 0;
-	if (minus == 1)
+	if (minus == 1 && base == 10)
 		j++;
 	while (i > 0)
 	{
@@ -41,7 +41,7 @@ static char	*ft_set_arr(char *a, uintmax_t nb, int base, int minus)
 			a[i--] = nb % base + '0';
 		nb /= base;
 	}
-	if (minus == 1)
+	if (minus == 1 && base == 10)
 		a[i] = '-';
 	return (a);
 }

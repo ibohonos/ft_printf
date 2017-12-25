@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 20:16:27 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/22 16:23:00 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/23 14:48:15 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_init_width(char *s, int i, t_struct *p)
 		while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
 			i++;
 	}
-	if (p->width != -1)
+	if (p->width > 0)
 		p->ret_len += p->width;
 	return (i);
 }
