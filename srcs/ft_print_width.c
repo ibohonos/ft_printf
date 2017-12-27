@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:23:42 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/23 17:42:36 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/27 21:36:40 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,12 @@ void	ft_print_width(t_struct *p, int all)
 		while (i-- > 0)
 			ft_putchar('0');
 	}
-	else if (p->width != -1 && p->zero != -1 && p->precision != -1)
+	else if (p->width != -1 && p->precision != -1)
 	{
-		i = p->width - p->precision;
+		i = p->width - (p->precision + all);
 		if (i < 0)
 			p->ret_len += all - p->width;
 		while (i-- > 0)
 			ft_putchar(' ');
-	}
-	if (p->precision != -1)
-	{
-		i = p->precision - all;
-		if (i < 0)
-			p->ret_len += all - p->precision;
-		while (i-- > 0)
-			ft_putchar('0');
 	}
 }

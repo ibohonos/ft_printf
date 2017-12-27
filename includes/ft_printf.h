@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/22 15:54:29 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/28 00:23:49 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ void			ft_strdel(char **as);
 char			*ft_strnew(size_t size);
 char			*ft_strdup(const char *s);
 char			*ft_strstr(const char *str1, const char *str2);
+size_t			ft_strlen(const char *s);
+int				ft_toupper(int c);
 void			ft_init_default_all(t_struct *p);
 int				ft_count_nbrs(int nbr);
 int				ft_printf(const char *format, ...);
@@ -69,5 +71,8 @@ int				ft_init_precision(char *s, int i, t_struct *p);
 int				ft_init_width(char *s, int i, t_struct *p);
 void			ft_print_width(t_struct *p, int all);
 int				ft_init_types(char *s, int i, t_struct *p, va_list argstr);
+void			ft_type_x(unsigned int type_x, t_struct *p, int b);
+void			ft_type_o(unsigned int type_x, t_struct *p);
+void			ft_type_u(unsigned int type_x, t_struct *p);
 
 #endif

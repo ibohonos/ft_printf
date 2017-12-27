@@ -6,21 +6,11 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 00:01:35 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/13 17:04:47 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/28 00:27:00 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static int		ft_strlen(char *s)
-{
-	int i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
 
 void	ft_type_f(double type_f, t_struct *p)
 {

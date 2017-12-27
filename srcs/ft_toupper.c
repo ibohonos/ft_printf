@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_s.c                                        :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 14:25:48 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/28 00:27:21 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/26 19:43:06 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/27 23:49:16 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_type_s(char *s, t_struct *p)
+int	ft_toupper(int c)
 {
-	ft_putstr(s);
-	p->ret_len += ft_strlen(s);
+	if (c >= 'a' && c <= 'z')
+		return (c - 32);
+	return (c);
 }

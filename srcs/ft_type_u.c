@@ -1,19 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_s.c                                        :+:      :+:    :+:   */
+/*   ft_type_u.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/05 14:25:48 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/28 00:27:21 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/28 00:27:10 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_type_s(char *s, t_struct *p)
+void	ft_type_u(unsigned int type_u, t_struct *p)
 {
-	ft_putstr(s);
-	p->ret_len += ft_strlen(s);
+	ft_putstr(ft_itoa_base(type_u, 10));
+	p->ret_len += ft_strlen(ft_itoa_base(type_u, 10));
 }
