@@ -6,19 +6,22 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/17 23:23:55 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/20 19:48:16 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/31 21:01:25 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_find(char *s, int *i, char c)
+int	ft_find(char *s, int i, char c)
 {
 	int count;
 
 	count = 0;
-	while (s[*i] && ft_find_types(s[*i], -1) != 1)
-		if (s[*(i++)] == c)
+	while (s[i] != '\0' && ft_find_types(s[i], -1) != 1)
+	{
+		if (s[i] == c)
 			count++;
+		i++;
+	}
 	return (count);
 }

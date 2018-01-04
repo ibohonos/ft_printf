@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_width.c                                    :+:      :+:    :+:   */
+/*   ft_type_ju.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 20:16:27 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/30 21:28:18 by ibohonos         ###   ########.fr       */
+/*   Created: 2018/01/02 20:19:26 by ibohonos          #+#    #+#             */
+/*   Updated: 2018/01/02 20:41:43 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_init_width(char *s, int i, t_struct *p)
+void	ft_type_ju(uintmax_t type_ju, t_struct *p)
 {
-	if (s[i] > '0' && s[i] <= '9')
-	{
-		p->width = ft_atoi(s + i);
-		while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
-			i++;
-	}
-	if (p->width > 0)
-		p->ret_len += p->width;
-	return (i);
+	ft_putstr(ft_unsigned_itoa_base(type_ju, 10));
+	p->ret_len += ft_strlen(ft_unsigned_itoa_base(type_ju, 10));
 }

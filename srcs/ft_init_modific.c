@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:57:39 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/20 17:20:29 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/31 21:32:03 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,39 @@
 
 int	ft_init_modific(char *str, int i, t_struct *p)
 {
-	if (ft_find(str, &i, 'h') / 2 != 1 && ft_find(str, &i, 'h') != 0
+	if (ft_find(str, i, 'h') / 2 != 1 && ft_find(str, i, 'h') != 0
 		&& p->spec_hh == 0)
+	{
 		p->spec_h = 1;
-	else if (ft_find(str, &i, 'h') / 2 == 1 && ft_find(str, &i, 'h') != 0)
+		i++;
+	}
+	else if (ft_find(str, i, 'h') / 2 == 1 && ft_find(str, i, 'h') != 0)
 	{
 		p->spec_h = 0;
 		p->spec_hh = 1;
+		i += 2;
 	}
-	if (ft_find(str, &i, 'l') / 2 != 1 && ft_find(str, &i, 'l') != 0
+	if (ft_find(str, i, 'l') / 2 != 1 && ft_find(str, i, 'l') != 0
 		&& p->spec_ll == 0)
+	{
 		p->spec_l = 1;
-	else if (ft_find(str, &i, 'l') / 2 == 1 && ft_find(str, &i, 'l') != 0)
+		i++;
+	}
+	else if (ft_find(str, i, 'l') / 2 == 1 && ft_find(str, i, 'l') != 0)
 	{
 		p->spec_l = 0;
 		p->spec_ll = 1;
+		i += 2;
 	}
 	if (ft_strstr(str, "j"))
+	{
 		p->spec_j = 1;
+		i++;
+	}
 	if (ft_strstr(str, "z"))
+	{
 		p->spec_z = 1;
+		i++;
+	}
 	return (i);
 }

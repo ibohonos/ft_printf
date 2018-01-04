@@ -1,26 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_width.c                                    :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 20:16:27 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/30 21:28:18 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/10/28 15:20:29 by ibohonos          #+#    #+#             */
+/*   Updated: 2017/12/30 21:46:33 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_init_width(char *s, int i, t_struct *p)
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	if (s[i] > '0' && s[i] <= '9')
-	{
-		p->width = ft_atoi(s + i);
-		while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
-			i++;
-	}
-	if (p->width > 0)
-		p->ret_len += p->width;
-	return (i);
+	char	*c;
+	size_t	i;
+	size_t	j;
+
+	if (!s)
+		return (NULL);
+	c = (char *)malloc(sizeof(char) * len + 1);
+	if (c == NULL)
+		return (NULL);
+	i = start;
+	j = 0;
+	while (s[j] != '\0')
+		j++;
+	if (j < start)
+		return (NULL);
+	j = 0;
+	while (j < len)
+		c[j++] = s[i++];
+	c[j] = '\0';
+	return (c);
 }

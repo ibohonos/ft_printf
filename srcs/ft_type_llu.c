@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_width.c                                    :+:      :+:    :+:   */
+/*   ft_type_llu.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/12/18 20:16:27 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/30 21:28:18 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/31 23:01:17 by ibohonos          #+#    #+#             */
+/*   Updated: 2018/01/02 20:42:19 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_init_width(char *s, int i, t_struct *p)
+void	ft_type_llu(unsigned long long type_llu, t_struct *p)
 {
-	if (s[i] > '0' && s[i] <= '9')
-	{
-		p->width = ft_atoi(s + i);
-		while (s[i] >= '0' && s[i] <= '9' && s[i] != '\0')
-			i++;
-	}
-	if (p->width > 0)
-		p->ret_len += p->width;
-	return (i);
+	ft_putstr(ft_unsigned_itoa_base(type_llu, 10));
+	p->ret_len += ft_strlen(ft_unsigned_itoa_base(type_llu, 10));
 }

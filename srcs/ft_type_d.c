@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/27 20:53:33 by ibohonos         ###   ########.fr       */
+/*   Updated: 2017/12/31 19:55:09 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,28 @@ void	ft_type_d(int type_d, t_struct *p)
 {
 	int i;
 
+	if (type_d < 0 && type_d != -2147483648 && p->plus != -1)
+	{
+		ft_putchar('-');
+		p->ret_len++;
+	}
+	if (p->plus != -1 && type_d >= 0 && p->zero != -1)
+	{
+		ft_putchar('+');
+		p->ret_len++;
+	}
 	if (p->minus == -1)
 		ft_print_width(p, ft_count_nbr(type_d));
+	if (p->plus != -1 && type_d >= 0 && p->zero == -1)
+	{
+		ft_putchar('+');
+		p->ret_len++;
+	}
+	else if (p->space != -1 && type_d >= 0)
+	{
+		ft_putchar(' ');
+		p->ret_len++;
+	}
 	if (p->precision != -1)
 	{
 		i = p->precision - ft_count_nbr(type_d);
@@ -47,6 +67,8 @@ void	ft_type_d(int type_d, t_struct *p)
 		while (i-- > 0)
 			ft_putchar('0');
 	}
+	if (type_d < 0 && p->plus != -1)
+		type_d *= -1;
 	ft_putnbr(type_d);
 	if (p->minus != -1)
 		ft_print_width(p, ft_count_nbr(type_d));
