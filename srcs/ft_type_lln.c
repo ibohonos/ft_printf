@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_type_zd.c                                       :+:      :+:    :+:   */
+/*   ft_type_lln.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/02 20:20:42 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/05 18:47:07 by ibohonos         ###   ########.fr       */
+/*   Created: 2017/12/31 23:01:17 by ibohonos          #+#    #+#             */
+/*   Updated: 2018/01/05 18:32:40 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_type_zd(long type_zd, t_struct *p)
+void	ft_type_lln(long long *type_lln, t_struct *p)
 {
-	ft_putstr(ft_itoa_base(type_zd, 10));
-	p->ret_len += ft_strlen(ft_itoa_base(type_zd, 10));
+	*type_lln = (long long)p->ret_len;
 }

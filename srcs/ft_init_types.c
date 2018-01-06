@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 15:49:19 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/22 17:34:40 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/06 14:07:20 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,7 @@ int	ft_init_types(char *s, int i, t_struct *p, va_list argstr)
 		i = ft_init_modific(s, i, p);
 	if (ft_find_types(s[i], -1) == 5)
 		i = ft_init_specific(s, i, argstr, p);
+	else if (ft_find_types(s[i], -1) == 0)
+		ft_type_c(s[i], p);
 	return (i);
 }

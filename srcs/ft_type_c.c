@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 14:35:31 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/05 14:36:33 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/06 14:06:39 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,13 @@
 
 void	ft_type_c(char c, t_struct *p)
 {
+	if (p->minus == -1)
+		ft_print_width(p, 1);
+	if (p->precision != -1)
+		p->ret_len -= p->precision;
 	ft_putchar(c);
-	p->ret_len += 1;
+	if (p->minus != -1)
+		ft_print_width(p, 1);
+	if (p->width == -1)
+		p->ret_len++;
 }

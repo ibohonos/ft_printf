@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/18 20:11:03 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/23 17:43:24 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/06 18:09:20 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,7 @@ int	ft_init_precision(char *s, int i, t_struct *p)
 		p->ret_len += p->precision;
 	else if (p->precision != -1 && p->width != -1)
 		p->ret_len += 0;
+	if (p->precision > p->width && p->width != -1)
+		p->ret_len += p->precision - p->width + 1;
 	return (i);
 }
