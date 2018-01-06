@@ -6,11 +6,12 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/06 17:22:33 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:46:05 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <locale.h>
 
 int	main(void)
 {
@@ -20,6 +21,7 @@ int	main(void)
 	long x = 2147483647;
 	long h;
 
+	setlocale(LC_ALL, "");
 	i = ft_printf("my:printf:\n%%d\t%d\n%%s\t%s\n\
 %%c\t%c\n%%i\t%i\n%%d\t%d\n%%f\t%f\n%%-8.5d\t%-8.5d\n%%.05d\t%.05d\n%%8.5d\t\
 %8.5d\n%%x\t%x\n%%o\t%o\n%%u\t%u\n%%X\t%X\n%%ln\t%ln\n\n",
@@ -65,6 +67,15 @@ printf("h2 = %ld\n", h);
 	printf("i = %d\nj = %d\n\n", i, j);
 	i = ft_printf("%-5.10o\n", 2500);
 	j = printf("%-5.10o\n", 2500);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%S\n", L"✓✓✓");
+	j = printf("%S\n", L"✓✓✓");
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%S\n", L"åœ∑´®†¥¨ˆøπ");
+	j = printf("%S\n", L"åœ∑´®†¥¨ˆøπ");
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("He\x1B[1;30mllllll\x1B[0mo\n");
+	j = printf("He\033[1;30mllllll\x1B[0mo\n");
 	printf("i = %d\nj = %d\n\n", i, j);
 	return (0);
 }

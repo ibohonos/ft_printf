@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 14:25:48 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/30 22:44:08 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/06 22:45:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	ft_type_s(char *s, t_struct *p)
 {
 	int i;
 
-	if (s == NULL)
+	if (!s)
 	{
 		ft_putstr("(null)");
 		p->ret_len += 6;

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/06 15:40:38 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/07 00:46:46 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,22 @@
 # define BONUS_SPEC "eEfFgGaAn"
 # define MODIFICATORS "hljz"
 # define FLAGS "#0-+ "
+# define BLC   "\x1B[30m"
+# define GRE   "\x1B[1;30m"
+# define RED   "\x1B[31m"
+# define GRN   "\x1B[32m"
+# define YEL   "\x1B[33m"
+# define BLU   "\x1B[34m"
+# define MAG   "\x1B[35m"
+# define CYN   "\x1B[36m"
+# define WHT   "\x1B[37m"
+# define RESET "\x1B[0m"
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdarg.h>
 # include <stdio.h>
+# include <stdint.h>
 
 typedef struct	s_struct
 {
@@ -109,5 +120,6 @@ void			ft_type_hhn(signed char *type_hhn, t_struct *p);
 void			ft_type_jn(intmax_t *type_jn, t_struct *p);
 void			ft_type_zn(size_t *type_zn, t_struct *p);
 void			ft_type_p(long long type_p, t_struct *p);
+void			ft_type_wchar(wchar_t *wchar, t_struct *p, int x, int y);
 
 #endif
