@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/08 00:01:35 by ibohonos          #+#    #+#             */
-/*   Updated: 2017/12/28 00:27:00 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/07 14:56:36 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,5 @@ void	ft_type_f(double type_f, t_struct *p)
 	}
 	ft_putstr(a);
 	p->ret_len += ft_strlen(a);
+	ft_strdel(&a);
 }

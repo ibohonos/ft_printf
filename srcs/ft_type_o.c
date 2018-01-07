@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/06 18:11:18 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/07 15:11:57 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 {
 	int i;
 
+	p->buffer = ft_itoa_base(type_o, 8);
 	if (p->plus != -1 && p->zero != -1)
 	{
 		ft_putchar('+');
@@ -23,13 +24,13 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 			p->ret_len++;
 	}
 	if (p->minus == -1 && p->sharp == -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)) - 1);
+		ft_print_width(p, ft_strlen(p->buffer) - 1);
 	else if (p->minus == -1 && p->sharp != -1 && p->zero == -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)) - 1);
+		ft_print_width(p, ft_strlen(p->buffer) - 1);
 	else if (p->minus == -1 && p->sharp != -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)) - 2);
+		ft_print_width(p, ft_strlen(p->buffer) - 2);
 	else if (p->minus == -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)));
+		ft_print_width(p, ft_strlen(p->buffer));
 	if (p->plus != -1 && p->zero == -1)
 	{
 		ft_putchar('+');
@@ -43,9 +44,9 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 	}
 	if (p->precision != -1)
 	{
-		i = p->precision - ft_strlen(ft_itoa_base(type_o, 8));
+		i = p->precision - ft_strlen(p->buffer);
 		if (i < 0)
-			p->ret_len += ft_strlen(ft_itoa_base(type_o, 8)) - p->precision;
+			p->ret_len += ft_strlen(p->buffer) - p->precision;
 		while (i-- > 0)
 			ft_putchar('0');
 	}
@@ -61,15 +62,16 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 		if (p->width == -1 && p->precision == -1)
 			p->ret_len++;
 	}
-	ft_putstr(ft_itoa_base(type_o, 8));
+	ft_putstr(p->buffer);
 	if (p->minus != -1 && p->sharp == -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)) - 1);
+		ft_print_width(p, ft_strlen(p->buffer) - 1);
 	else if (p->minus != -1 && p->sharp != -1 && p->zero == -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)) - 1);
+		ft_print_width(p, ft_strlen(p->buffer) - 1);
 	else if (p->minus != -1 && p->sharp != -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)) - 2);
+		ft_print_width(p, ft_strlen(p->buffer) - 2);
 	else if (p->minus != -1)
-		ft_print_width(p, ft_strlen(ft_itoa_base(type_o, 8)));
+		ft_print_width(p, ft_strlen(p->buffer));
 	if (p->width == -1 && p->precision == -1)
-		p->ret_len += ft_strlen(ft_itoa_base(type_o, 8));
+		p->ret_len += ft_strlen(p->buffer);
+	ft_strdel(&p->buffer);
 }

@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/07 00:46:46 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/07 21:08:46 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,5 +121,6 @@ void			ft_type_jn(intmax_t *type_jn, t_struct *p);
 void			ft_type_zn(size_t *type_zn, t_struct *p);
 void			ft_type_p(long long type_p, t_struct *p);
 void			ft_type_wchar(wchar_t *wchar, t_struct *p, int x, int y);
+void			ft_print_precision(t_struct *p, int all);
 
 #endif

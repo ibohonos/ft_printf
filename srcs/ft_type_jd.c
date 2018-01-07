@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/02 20:19:26 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/03 00:34:36 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/07 15:04:39 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	ft_type_jd(intmax_t type_jd, t_struct *p)
 {
-	ft_putstr(ft_itoa_base(type_jd, 10));
-	p->ret_len += ft_strlen(ft_itoa_base(type_jd, 10));
+	p->buffer = ft_itoa_base(type_jd, 10);
+	ft_putstr(p->buffer);
+	p->ret_len += ft_strlen(p->buffer);
+	ft_strdel(&p->buffer);
 }
