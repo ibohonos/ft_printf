@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/07 15:11:57 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 01:34:05 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,17 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 		if (p->width == -1)
 			p->ret_len++;
 	}
-	if (p->minus == -1 && p->sharp == -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(p->buffer) - 1);
-	else if (p->minus == -1 && p->sharp != -1 && p->zero == -1)
-		ft_print_width(p, ft_strlen(p->buffer) - 1);
-	else if (p->minus == -1 && p->sharp != -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(p->buffer) - 2);
-	else if (p->minus == -1)
-		ft_print_width(p, ft_strlen(p->buffer));
+	if (p->sharp != -1 && p->precision == 0 && p->width == -1)
+		p->ret_len++;
+	if (p->minus == -1)
+	{
+		if (p->sharp != -1 && p->zero == -1)
+			ft_print_width(p, ft_strlen(p->buffer) + 1);
+		else if (p->sharp != -1 && p->zero != -1)
+			ft_print_width(p, ft_strlen(p->buffer) + 2);
+		else
+			ft_print_width(p, ft_strlen(p->buffer));
+	}
 	if (p->plus != -1 && p->zero == -1)
 	{
 		ft_putchar('+');
@@ -62,15 +65,20 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 		if (p->width == -1 && p->precision == -1)
 			p->ret_len++;
 	}
-	ft_putstr(p->buffer);
-	if (p->minus != -1 && p->sharp == -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(p->buffer) - 1);
-	else if (p->minus != -1 && p->sharp != -1 && p->zero == -1)
-		ft_print_width(p, ft_strlen(p->buffer) - 1);
-	else if (p->minus != -1 && p->sharp != -1 && p->zero != -1)
-		ft_print_width(p, ft_strlen(p->buffer) - 2);
-	else if (p->minus != -1)
-		ft_print_width(p, ft_strlen(p->buffer));
+	if ((p->precision == 0 && type_o != 0) || (type_o == 0 && p->plus != -1) ||
+		p->precision != 0)
+		ft_putstr(p->buffer);
+	else if (p->precision == 0 && type_o == 0)
+		p->ret_len--;
+	if (p->minus != -1)
+	{
+		if (p->sharp != -1 && p->zero == -1)
+			ft_print_width(p, ft_strlen(p->buffer) + 1);
+		else if (p->sharp != -1 && p->zero != -1)
+			ft_print_width(p, ft_strlen(p->buffer) + 2);
+		else
+			ft_print_width(p, ft_strlen(p->buffer));
+	}
 	if (p->width == -1 && p->precision == -1)
 		p->ret_len += ft_strlen(p->buffer);
 	ft_strdel(&p->buffer);
