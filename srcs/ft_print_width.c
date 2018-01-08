@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/22 12:23:42 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 14:23:07 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 15:33:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	ft_print_width(t_struct *p, int all)
 			i = p->width - p->precision - 1;
 		else
 			i = p->width - p->precision;
-		printf("\ni = %d\n", i);
 		if (i < 0)
 			p->ret_len += all - p->width;
 		while (i-- > 0)
