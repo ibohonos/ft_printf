@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 22:30:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 16:36:51 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 16:52:18 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,10 @@ char	*ft_bit_help_3(char *s, wchar_t wchar, int *y)
 
 int		ft_count_len_bit(wchar_t wchar)
 {
+	int i;
 	int l;
 
+	i = -1;
 	l = 0;
 	if (wchar)
 	{
@@ -63,22 +65,19 @@ void	ft_type_cl(wchar_t wchar, t_struct *p)
 	y = 0;
 	if (!wchar)
 	{
-		ft_putchar(wchar);
+		// ft_putstr(0);
 		p->ret_len++;
 		return ;
 	}
 	p->buffer = ft_strnew(ft_count_len_bit(wchar));
-	if (wchar)
-	{
-		if (wchar <= 0x7F)
-			p->buffer[y++] = wchar;
-		else if (wchar <= 0x7FF)
-			p->buffer = ft_bit_help_1(p->buffer, wchar, &y);
-		else if (wchar <= 0xFFFF)
-			p->buffer = ft_bit_help_2(p->buffer, wchar, &y);
-		else if (wchar <= 0x1FFFFF)
-			p->buffer = ft_bit_help_3(p->buffer, wchar, &y);
-	}
+	if (wchar <= 0x7F)
+		p->buffer[y++] = wchar;
+	else if (wchar <= 0x7FF)
+		p->buffer = ft_bit_help_1(p->buffer, wchar, &y);
+	else if (wchar <= 0xFFFF)
+		p->buffer = ft_bit_help_2(p->buffer, wchar, &y);
+	else if (wchar <= 0x1FFFFF)
+		p->buffer = ft_bit_help_3(p->buffer, wchar, &y);
 	p->buffer[y] = '\0';
 	if (p->minus == -1)
 		ft_print_width(p, ft_count_len_bit(wchar));
@@ -92,15 +91,7 @@ void	ft_type_cl(wchar_t wchar, t_struct *p)
 	}
 	else if (p->precision != -1 && p->width == -1)
 		p->ret_len = (p->ret_len - p->precision) + ft_count_len_bit(wchar);
-	// if (p->precision != -1 && p->precision < ft_count_len_bits(wchar))
-	// {
-	// 	p->buffer = ft_strsub(wchar, 0, p->precision);
-	// 	ft_putstr(p->buffer);
-	// 	free(p->buffer);
-	// 	p->ret_len -= ft_count_len_bits(wchar) - p->precision;
-	// }
-	// else
-		ft_putstr(p->buffer);
+	ft_putstr(p->buffer);
 	p->ret_len += ft_strlen(p->buffer);
 	free(p->buffer);
 }
