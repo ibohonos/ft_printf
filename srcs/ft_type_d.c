@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 01:39:23 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 15:38:10 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void	ft_type_d(int type_d, t_struct *p)
 		if (p->width == -1)
 			p->ret_len++;
 	}
+	if (p->space != -1 && p->width != -1)
+		p->width--;
 	minus = 0;
 	if (type_d < 0 && type_d != -2147483648 && p->zero != -1)
 	{
