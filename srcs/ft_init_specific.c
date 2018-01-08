@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/06 23:06:33 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 13:49:11 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	ft_spec_o(char *format, int i, va_list argstr, t_struct *p)
 
 int	ft_spec_d(char *format, int i, va_list argstr, t_struct *p)
 {
-	if (format[i] == 'd' && p->spec_l != 0)
+	if ((format[i] == 'd' && p->spec_l != 0) || format[i] == 'D')
 		ft_type_ld(va_arg(argstr, long), p);
 	else if (format[i] == 'd' && p->spec_ll != 0)
 		ft_type_lld(va_arg(argstr, long long), p);
@@ -116,7 +116,7 @@ int	ft_spec_n(char *format, int i, va_list argstr, t_struct *p)
 
 int	ft_basic_spec(char *format, int i, va_list argstr, t_struct *p)
 {
-	if ((format[i] == 'd' || format[i] == 'D' || format[i] == 'i')
+	if ((format[i] == 'd' || format[i] == 'i')
 		&& ft_is_spec(p) == 0)
 		ft_type_d(va_arg(argstr, int), p);
 	else if (format[i] == 's' && ft_is_spec(p) == 0)

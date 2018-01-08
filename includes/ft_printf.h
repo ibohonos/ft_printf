@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/07 21:08:46 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 13:46:51 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FT_PRINTF_H
 
 # define SPEC "sSpdDioOuUxXcC"
-# define BONUS_SPEC "eEfFgGaAn"
+# define BONUS_SPEC "eEfFgGaAnb"
 # define MODIFICATORS "hljz"
 # define FLAGS "#0-+ "
 # define BLC   "\x1B[30m"
