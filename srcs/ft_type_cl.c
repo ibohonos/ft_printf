@@ -6,20 +6,20 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 22:30:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 16:58:28 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 17:03:42 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_bit_help_1(char *s, wchar_t wchar, int *y)
+char	*ft_bit_help_1(char *s, int wchar, int *y)
 {
 	s[(*y)++] = (char)(((wchar & 0x07c0) >> 6) + 0xc0);
 	s[(*y)++] = (char)((wchar & 0x003F) + 0x80);
 	return (s);
 }
 
-char	*ft_bit_help_2(char *s, wchar_t wchar, int *y)
+char	*ft_bit_help_2(char *s, int wchar, int *y)
 {
 	s[(*y)++] = (char)(((wchar & 0xF000) >> 12) + 0xE0);
 	s[(*y)++] = (char)(((wchar & 0x0Fc0) >> 6) + 0x80);
@@ -27,7 +27,7 @@ char	*ft_bit_help_2(char *s, wchar_t wchar, int *y)
 	return (s);
 }
 
-char	*ft_bit_help_3(char *s, wchar_t wchar, int *y)
+char	*ft_bit_help_3(char *s, int wchar, int *y)
 {
 	s[(*y)++] = (char)(((wchar & 0x1c0000) >> 18) + 0xF0);
 	s[(*y)++] = (char)(((wchar & 0x03F000) >> 12) + 0x80);
@@ -36,7 +36,7 @@ char	*ft_bit_help_3(char *s, wchar_t wchar, int *y)
 	return (s);
 }
 
-int		ft_count_len_bit(wchar_t wchar)
+int		ft_count_len_bit(int wchar)
 {
 	int i;
 	int l;
@@ -57,7 +57,7 @@ int		ft_count_len_bit(wchar_t wchar)
 	return (l);
 }
 
-void	ft_type_cl(wchar_t wchar, t_struct *p)
+void	ft_type_cl(int wchar, t_struct *p)
 {
 	int i;
 	int y;

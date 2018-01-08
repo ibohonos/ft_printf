@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 16:51:14 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 17:03:53 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,7 +146,7 @@ int	ft_basic_spec(char *fmt, int i, va_list argstr, t_struct *p)
 int	ft_init_specific(char *format, int i, va_list argstr, t_struct *p)
 {
 	if (format[i] == 'C' || (format[i] == 'c' && p->spec_l != 0))
-		ft_type_cl(va_arg(argstr, wchar_t), p);
+		ft_type_cl(va_arg(argstr, int), p);
 		// ft_type_c(va_arg(argstr, int), p);
 		// ft_type_wchar(va_arg(argstr, wchar_t *), p, -1, 0);
 	i = ft_spec_u(format, i, argstr, p);
