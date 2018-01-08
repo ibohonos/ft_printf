@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 15:19:19 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 16:24:26 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_spec_lx(char *format, int i, va_list argstr, t_struct *p)
 
 int	ft_spec_o(char *format, int i, va_list argstr, t_struct *p)
 {
-	if (format[i] == 'o' && p->spec_l != 0)
+	if ((format[i] == 'o' && p->spec_l != 0) || format[i] == 'O')
 		ft_type_lo(va_arg(argstr, unsigned long), p);
 	else if (format[i] == 'o' && p->spec_ll != 0)
 		ft_type_llo(va_arg(argstr, unsigned long long), p);
@@ -116,36 +116,37 @@ int	ft_spec_n(char *format, int i, va_list argstr, t_struct *p)
 	return (i);
 }
 
-int	ft_basic_spec(char *format, int i, va_list argstr, t_struct *p)
+int	ft_basic_spec(char *fmt, int i, va_list argstr, t_struct *p)
 {
-	if ((format[i] == 'd' || format[i] == 'i') && ft_is_spec(p) == 0)
+	if ((fmt[i] == 'd' || fmt[i] == 'i') && ft_is_spec(p) == 0)
 		ft_type_d(va_arg(argstr, int), p);
-	else if (format[i] == 's' && ft_is_spec(p) == 0)
+	else if (fmt[i] == 's' && ft_is_spec(p) == 0)
 		ft_type_s(va_arg(argstr, char *), p);
-	else if ((format[i] == 'S' && ft_is_spec(p) == 0) || (format[i] == 's'
-		&& p->spec_l))
+	else if ((fmt[i] == 'S' && !ft_is_spec(p)) || (fmt[i] == 's' && p->spec_l))
 		ft_type_wchar(va_arg(argstr, wchar_t *), p, -1, 0);
-	else if ((format[i] == 'c' && ft_is_spec(p) == 0) || (format[i] == 'C' && ft_is_spec(p) == 0))
+	else if (fmt[i] == 'c' && ft_is_spec(p) == 0)
 		ft_type_c(va_arg(argstr, int), p);
-	else if ((format[i] == 'f' || format[i] == 'F') && ft_is_spec(p) == 0)
+	else if ((fmt[i] == 'f' || fmt[i] == 'F') && ft_is_spec(p) == 0)
 		ft_type_f(va_arg(argstr, double), p);
-	else if (format[i] == 'x' && ft_is_spec(p) == 0)
+	else if (fmt[i] == 'x' && ft_is_spec(p) == 0)
 		ft_type_x(va_arg(argstr, unsigned int), p, 0);
-	else if ((format[i] == 'o' || format[i] == 'O') && ft_is_spec(p) == 0)
+	else if (fmt[i] == 'o' && ft_is_spec(p) == 0)
 		ft_type_o(va_arg(argstr, unsigned int), p);
-	else if (format[i] == 'u' && ft_is_spec(p) == 0)
+	else if (fmt[i] == 'u' && ft_is_spec(p) == 0)
 		ft_type_u(va_arg(argstr, unsigned int), p);
-	else if (format[i] == 'n' && ft_is_spec(p) == 0)
+	else if (fmt[i] == 'n' && ft_is_spec(p) == 0)
 		ft_type_n(va_arg(argstr, int *), p);
-	else if (format[i] == 'p')
+	else if (fmt[i] == 'p')
 		ft_type_p(va_arg(argstr, long long), p);
-	else if (format[i] == 'b')
+	else if (fmt[i] == 'b')
 		ft_type_b(va_arg(argstr, uintmax_t), p);
 	return (i);
 }
 
 int	ft_init_specific(char *format, int i, va_list argstr, t_struct *p)
 {
+	if (format[i] == 'C' || (format[i] == 'c' && p->spec_l != 0))
+		ft_type_cl(va_arg(argstr, wchar_t), p);
 	i = ft_spec_u(format, i, argstr, p);
 	i = ft_spec_x(format, i, argstr, p);
 	i = ft_spec_lx(format, i, argstr, p);

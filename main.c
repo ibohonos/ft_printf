@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 15:26:20 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 16:36:36 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ int	main(void)
 	i = ft_printf("%jd\n", 9223372036854775808);
 	j = printf("%jd\n", 9223372036854775808);
 	printf("i = %d\nj = %d\n\n", i, j);
-	i = ft_printf("%#015.10b\n", 125);
+	i = ft_printf("%#015b\n", 125);
 	printf("i = %d\nj = %d\n\n", i, j);
 	// i = ft_printf("%%%%%%%%%%");
 	// j = printf("%%%%%%%%%%");
@@ -96,5 +96,8 @@ int	main(void)
 	i = ft_printf("%#o\n", 0);
 	j = printf("%#o\n", 0);
 	printf("\ni = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%C\n", 0);
+	j = printf("%C\n", 0);
+	printf("i = %d\nj = %d\n\n", i, j);
 	return (0);
 }
