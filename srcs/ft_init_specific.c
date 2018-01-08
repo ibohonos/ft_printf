@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 18:13:49 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 19:10:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ int	ft_spec_lx(char *format, int i, va_list argstr, t_struct *p)
 
 int	ft_spec_o(char *format, int i, va_list argstr, t_struct *p)
 {
-	if (format[i] == 'o' && p->spec_l != 0)
+	if ((format[i] == 'o' && p->spec_l != 0) || format[i] == 'O')
 		ft_type_lo(va_arg(argstr, unsigned long), p);
 	else if (format[i] == 'o' && p->spec_ll != 0)
 		ft_type_llo(va_arg(argstr, unsigned long long), p);
@@ -130,7 +130,7 @@ int	ft_basic_spec(char *fmt, int i, va_list argstr, t_struct *p)
 		ft_type_f(va_arg(argstr, double), p);
 	else if (fmt[i] == 'x' && ft_is_spec(p) == 0)
 		ft_type_x(va_arg(argstr, unsigned int), p, 0);
-	else if ((fmt[i] == 'o' && ft_is_spec(p) == 0) || fmt[i] == 'O')
+	else if (fmt[i] == 'o' && ft_is_spec(p) == 0)
 		ft_type_o(va_arg(argstr, unsigned int), p);
 	else if (fmt[i] == 'u' && ft_is_spec(p) == 0)
 		ft_type_u(va_arg(argstr, unsigned int), p);
@@ -147,8 +147,6 @@ int	ft_init_specific(char *format, int i, va_list argstr, t_struct *p)
 {
 	if (format[i] == 'C' || (format[i] == 'c' && p->spec_l != 0))
 		ft_type_cl(va_arg(argstr, int), p);
-		// ft_type_c(va_arg(argstr, int), p);
-		// ft_type_wchar(va_arg(argstr, wchar_t *), p, -1, 0);
 	i = ft_spec_u(format, i, argstr, p);
 	i = ft_spec_x(format, i, argstr, p);
 	i = ft_spec_lx(format, i, argstr, p);

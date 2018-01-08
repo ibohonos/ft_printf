@@ -6,12 +6,13 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 18:21:20 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 19:50:17 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <locale.h>
+#include <limits.h>
 
 int	main(void)
 {
@@ -124,8 +125,26 @@ int	main(void)
 	i = ft_printf("%+o\n", 42);
 	j = printf("%+o\n", 42);
 	printf("i = %d\nj = %d\n\n", i, j);
-	i = ft_printf("%15.4d\n", 424242);
-	j = printf("%15.4d\n", 424242);
+	i = ft_printf("{%15.4d}\n", -424242);
+	j = printf("{%15.4d}\n", -424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%O\n", LONG_MAX);
+	j = printf("%O\n", LONG_MAX);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%.4d\n", -424242);
+	j = printf("%.4d\n", -424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("{%4.15d}\n", 424242);
+	j = printf("{%4.15d}\n", 424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.8d\n", 424242424);
+	j = printf("%4.8d\n", 424242424);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15d\n", -42);
+	j = printf("%4.15d\n", -42);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15d\n", -424242);
+	j = printf("%4.15d\n", -424242);
 	printf("i = %d\nj = %d\n\n", i, j);
 	return (0);
 }
