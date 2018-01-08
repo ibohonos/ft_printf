@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 22:30:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 16:53:45 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 16:58:28 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void	ft_type_cl(wchar_t wchar, t_struct *p)
 	y = 0;
 	if (!wchar)
 	{
-		ft_putstr(0);
+		write(1, "\0", 1);
+		// ft_putstr("");
 		p->ret_len++;
 		return ;
 	}
