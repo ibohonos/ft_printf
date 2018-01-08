@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:35:49 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 16:10:59 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 17:49:19 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,17 @@ int	ft_printf(const char *format, ...)
 		ft_init_default_all(&p);
 		if (str[i] == '%' && str[i + 1] == '%')
 		{
-			p.ret_len++;
-			i++;
 			ft_putchar(str[i++]);
+			p.ret_len++;
 		}
-		if ((str[i] == '%' && str[i + 1] == '\0') || str[i] == '\0')
-			break ;
-		if (str[i] != '%' && str[i])
+		else if (str[i] != '%' && str[i])
 		{
 			ft_putchar(str[i]);
 			p.ret_len++;
 		}
-		if (str[i] == '%' && ft_find_types(str[i + 1], -1) > 0)
+		else if ((str[i] == '%' && str[i + 1] == '\0') || str[i] == '\0')
+			break ;
+		else if (str[i] == '%' && ft_find_types(str[i + 1], -1) > 0)
 			i = ft_init_types(str, ++i, &p, argstr);
 		if ((str[i] == '%' && str[i + 1] == '\0') || str[i] == '\0')
 			break ;

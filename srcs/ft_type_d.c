@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 15:42:35 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 18:16:40 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_type_d(int type_d, t_struct *p)
 	if (p->precision != -1)
 		p->zero = -1;
 	p->buffer = ft_itoa_base(type_d, 10);
-	if (p->space != -1 && type_d > 0)
+	if (p->space != -1 && type_d >= 0)
 	{
 		ft_putchar(' ');
 		if (p->width == -1)

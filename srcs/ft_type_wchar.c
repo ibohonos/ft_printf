@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 22:30:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/07 00:02:18 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 18:11:17 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,9 @@ void	ft_type_wchar(wchar_t *wchar, t_struct *p, int x, int y)
 	// }
 	// else
 		ft_putstr(p->buffer);
-	p->ret_len += ft_strlen(p->buffer);
+	if (p->minus != -1)
+		ft_print_width(p, ft_count_len_bits(wchar));
+	if (p->width == -1 && p->precision == -1)
+		p->ret_len += ft_strlen(p->buffer);
 	free(p->buffer);
 }

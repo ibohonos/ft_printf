@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/02 20:19:26 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/07 15:12:45 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 18:05:18 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,20 @@
 
 void	ft_type_p(long long type_p, t_struct *p)
 {
+	p->buffer = ft_itoa_base(type_p, 16);
+	if (p->minus == -1 && p->zero == -1)
+			ft_print_width(p, ft_strlen(p->buffer) + 2);
 	ft_putstr("0x");
+	if (p->minus == -1 && p->zero != -1)
+		ft_print_width(p, ft_strlen(p->buffer) + 2);
 	if (p->width == -1 && p->precision == -1)
 		p->ret_len += 2;
-	p->buffer = ft_itoa_base(type_p, 16);
+	if (p->precision != -1)
+		ft_print_precision(p, ft_strlen(p->buffer));
 	ft_putstr(p->buffer);
-	p->ret_len += ft_strlen(p->buffer);
+	if (p->minus != -1)
+		ft_print_width(p, ft_strlen(p->buffer) + 2);
+	if (p->width == -1 && p->precision == -1)
+		p->ret_len += ft_strlen(p->buffer);
 	ft_strdel(&p->buffer);
 }

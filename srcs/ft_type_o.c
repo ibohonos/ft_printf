@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 16:00:15 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 18:20:30 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,7 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 		else
 			ft_print_width(p, ft_strlen(p->buffer));
 	}
-	if (p->plus != -1 && p->zero == -1)
-	{
-		ft_putchar('+');
-		if (p->width == -1)
-			p->ret_len++;
-	}
-	else if (p->space != -1 && p->width == -1)
+	if (p->space != -1 && p->width == -1)
 	{
 		ft_putchar(' ');
 		p->ret_len++;
