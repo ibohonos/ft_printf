@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 22:30:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 17:22:19 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 17:26:01 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,14 +83,13 @@ void	ft_type_cl(char wchar, t_struct *p)
 	else if (p->precision != -1 && p->width == -1)
 		p->ret_len = (p->ret_len - p->precision) + 1;
 	p->buffer = ft_strnew(ft_count_len_bit((wchar_t)wchar));
-	if ((int)wchar <= 0x7F)
+	if ((wchar_t)wchar <= 0x7F)
 		ft_putchar(wchar);
-		// p->buffer[y++] = wchar;
-	else if ((int)wchar <= 0x7FF)
+	else if ((wchar_t)wchar <= 0x7FF)
 		p->buffer = ft_bit_help_1(p->buffer, (wchar_t)wchar, &y);
-	else if ((int)wchar <= 0xFFFF)
+	else if ((wchar_t)wchar <= 0xFFFF)
 		p->buffer = ft_bit_help_2(p->buffer, (wchar_t)wchar, &y);
-	else if ((int)wchar <= 0x1FFFFF)
+	else if ((wchar_t)wchar <= 0x1FFFFF)
 		p->buffer = ft_bit_help_3(p->buffer, (wchar_t)wchar, &y);
 	p->buffer[y] = '\0';
 	ft_putstr(p->buffer);
