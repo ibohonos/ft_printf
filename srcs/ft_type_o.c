@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 01:34:05 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/08 16:00:15 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 		if (p->width == -1 && p->precision == -1)
 			p->ret_len += 2;
 	}
-	else if (p->sharp != -1 && p->zero == -1)
+	else if ((p->sharp != -1 && p->zero == -1 && type_o != 0) ||
+		(p->sharp != -1 && p->precision == 0 && type_o == 0))
 	{
 		ft_putstr("0");
 		if (p->width == -1 && p->precision == -1)
