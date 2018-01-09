@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 16:05:53 by ibohonos          #+#    #+#              #
-#    Updated: 2018/01/09 18:55:36 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/01/09 20:10:00 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,10 +57,3 @@ fclean: clean
 	/bin/rm -f $(NAME)
 
 re: fclean all
-
-main: re
-	$(CC) -I $(INCL_DIR) -o main.o -c main.c
-	$(CC) main.o $(NAME) -I $(INCL_DIR) -o ft_printf
-
-main_fclean: fclean
-	/bin/rm -f main.o ft_printf
