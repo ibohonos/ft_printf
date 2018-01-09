@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/05 04:53:28 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 19:52:23 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 14:54:56 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,11 +53,11 @@ void	ft_type_d(int type_d, t_struct *p)
 	if ((minus == 1 || p->plus != -1 || type_d < 0)
 		&& p->precision != -1 && p->width != -1)
 	{
-		p->width--;
-		if (p->width < p->precision)
-			p->ret_len--;
-		if (p->width < (int)ft_strlen(p->buffer))
-			p->ret_len--;
+		if (p->width > p->precision)
+			p->width--;
+		if ((minus == 1 || type_d < 0) && p->width < p->precision
+			&& p->precision < (int)ft_strlen(p->buffer))
+			p->ret_len++;
 	}
 	if (p->precision > p->width && p->width > 0)
 		p->ret_len++;

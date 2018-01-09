@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 14:13:05 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 15:29:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,15 +97,6 @@ int	main(void)
 	// i = printf("%hhd%hhd", 1, 42);
 	i = ft_printf("%#o\n", 0);
 	j = printf("%#o\n", 0);
-	printf("\ni = %d\nj = %d\n\n", i, j);
-	i = ft_printf("%C\n", 0);
-	j = printf("%C\n", 0);
-	printf("i = %d\nj = %d\n\n", i, j);
-	i = ft_printf("%C\n", L'çM-^L«');
-	j = printf("%C\n", L'çM-^L«');
-	printf("i = %d\nj = %d\n\n", i, j);
-	i = ft_printf("%s %C %d %p %x %% %S\n", "bonjour ", L'è©²', 42, &free, 42, L"ÙM-^DØ­ÙM-^E Ø®ÙM-^FØ");
-	j = printf("%s %C %d %p %x %% %S\n", "bonjour ", L'è©²', 42, &free, 42, L"ÙM-^DØ­ÙM-^E Ø®ÙM-^FØ");
 	printf("i = %d\nj = %d\n\n", i, j);
 	i = ft_printf("%ld%ld\n", 0, 42);
 	j = printf("%ld%ld\n", 0, 42);
@@ -157,6 +148,24 @@ int	main(void)
 	printf("i = %d\nj = %d\n\n", i, j);
 	i = ft_printf("%zX, %zX\n", 0, ULLONG_MAX);
 	j = printf("%zX, %zX\n", 0, ULLONG_MAX);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%llu\n", 18446744073709551491);
+	j = printf("%llu\n", 18446744073709551491);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%8.4d\n", -424242424);
+	j = printf("%8.4d\n", -424242424);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15d\n", -424242);
+	j = printf("%4.15d\n", -424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.8d\n", -424242424);
+	j = printf("%4.8d\n", -424242424);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15u\n", 42);
+	j = printf("%4.15u\n", 42);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%.u, %.0u\n", 0, 0);
+	j = printf("%.u, %.0u\n", 0, 0);
 	printf("i = %d\nj = %d\n\n", i, j);
 	return (0);
 }
