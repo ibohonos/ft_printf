@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 15:29:24 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:55:46 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,33 @@ int	main(void)
 	printf("i = %d\nj = %d\n\n", i, j);
 	i = ft_printf("%.u, %.0u\n", 0, 0);
 	j = printf("%.u, %.0u\n", 0, 0);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%lu\n", 1846744073709551491);
+	j = printf("%lu\n", 1846744073709551491);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("% o|%+o\n", 42, 42);
+	j = printf("% o|%+o\n", 42, 42);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15o\n", 42);
+	j = printf("%4.15o\n", 42);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15o\n", 424242);
+	j = printf("%4.15o\n", 424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.8o\n", 424242424);
+	j = printf("%4.8o\n", 424242424);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15O\n", 42);
+	j = printf("%4.15O\n", 42);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15x\n", 42424242);
+	j = printf("%4.15x\n", 42424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.8x\n", 424242424);
+	j = printf("%4.8x\n", 424242424);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%4.15X\n", 424242);
+	j = printf("%4.15X\n", 424242);
 	printf("i = %d\nj = %d\n\n", i, j);
 	return (0);
 }

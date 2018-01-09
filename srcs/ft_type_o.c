@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 18:20:30 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 17:04:20 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,19 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 	int i;
 
 	p->buffer = ft_itoa_base(type_o, 8);
+	if (p->plus != -1 && p->precision != -1 && p->width != -1)
+	{
+		if (p->width > p->precision)
+			p->width--;
+		if (p->width < p->precision && p->precision < (int)ft_strlen(p->buffer))
+			p->ret_len++;
+	}
+	if (p->precision > p->width && p->width > 0
+		&& p->width > (int)ft_strlen(p->buffer) && p->minus == -1)
+		p->ret_len++;
+	if ((int)ft_strlen(p->buffer) > p->precision && p->width != -1
+		&& p->width < p->precision)
+		p->ret_len += (int)ft_strlen(p->buffer) - p->precision;
 	if (p->plus != -1 && p->zero != -1)
 	{
 		ft_putchar('+');
@@ -33,11 +46,6 @@ void	ft_type_o(unsigned int type_o, t_struct *p)
 			ft_print_width(p, ft_strlen(p->buffer) + 2);
 		else
 			ft_print_width(p, ft_strlen(p->buffer));
-	}
-	if (p->space != -1 && p->width == -1)
-	{
-		ft_putchar(' ');
-		p->ret_len++;
 	}
 	if (p->precision != -1)
 	{

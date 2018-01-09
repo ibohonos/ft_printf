@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 09:28:56 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 16:54:50 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,22 @@ void	ft_type_x(unsigned int type_x, t_struct *p, int b)
 	char	*c;
 
 	s = ft_itoa_base(type_x, 16);
+	if (p->plus != -1 && p->precision != -1 && p->width != -1)
+	{
+		if (p->width > p->precision)
+			p->width--;
+		if (p->width < p->precision && p->precision < (int)ft_strlen(s))
+			p->ret_len++;
+	}
+	if (p->precision > p->width && p->width > 0
+		&& p->width > (int)ft_strlen(s))
+		p->ret_len++;
+	if ((int)ft_strlen(s) > p->width && p->width != -1
+		&& p->width < p->precision)
+		p->ret_len -= p->width;
+	if (p->precision == (int)ft_strlen(s) && p->plus == -1 && p->precision != -1
+		&& p->width != -1)
+		p->ret_len--;
 	if (p->minus == -1)
 	{
 		if (p->width != -1 && p->zero == -1 && p->precision != -1)
