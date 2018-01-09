@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:36:24 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 09:28:27 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 19:03:49 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int				ft_init_flags(char *str, int i, t_struct *p);
 void			ft_type_d(int type_d, t_struct *p);
 void			ft_type_s(char *s, t_struct *p);
 void			ft_type_c(char c, t_struct *p);
-void			ft_type_f(double type_f, t_struct *p);
 char			*ft_itoa_base(intmax_t n, int base);
 char			*ft_unsigned_itoa_base(uintmax_t n, int base);
 int				ft_init_precision(char *s, int i, t_struct *p);
@@ -125,5 +124,12 @@ void			ft_print_precision(t_struct *p, int all);
 void			ft_type_b(uintmax_t type_b, t_struct *p);
 void			ft_type_cl(char wchar, t_struct *p);
 char			*ft_strupper(char *s);
+int				ft_count_len_bits(wchar_t *wchar);
+int				ft_count_len_bit(wchar_t wchar);
+void			ft_type_x_help_if_1(char *s, t_struct *p);
+void			ft_type_x_help_if_2(char *s, t_struct *p);
+void			ft_type_x_help_if_3(char *s, t_struct *p, int i);
+void			ft_type_x_help_if_4(char *s, t_struct *p);
+void			ft_type_x_help_if_5(char *s, t_struct *p);
 
 #endif

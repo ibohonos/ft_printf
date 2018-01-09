@@ -6,13 +6,19 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 16:35:49 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 09:13:21 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 19:09:57 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+void	ft_printf_help(char s, t_struct *p)
+{
+	ft_putchar(s);
+	p->ret_len++;
+}
+
+int		ft_printf(const char *format, ...)
 {
 	t_struct	p;
 	va_list		argstr;
@@ -27,21 +33,13 @@ int	ft_printf(const char *format, ...)
 	{
 		ft_init_default_all(&p);
 		if (str[i] == '%' && str[i + 1] == '%')
-		{
-			ft_putchar(str[i++]);
-			p.ret_len++;
-		}
+			ft_printf_help(str[i++], &p);
 		else if (str[i] != '%' && str[i])
-		{
-			ft_putchar(str[i]);
-			p.ret_len++;
-		}
+			ft_printf_help(str[i], &p);
 		else if ((str[i] == '%' && str[i + 1] == '\0') || str[i] == '\0')
 			break ;
 		else if (str[i] == '%' && ft_find_types(str[i + 1], -1) > 0)
 			i = ft_init_types(str, ++i, &p, argstr);
-		if ((str[i] == '%' && str[i + 1] == '\0') || str[i] == '\0')
-			break ;
 		i++;
 	}
 	va_end(argstr);

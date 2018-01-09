@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 16:05:53 by ibohonos          #+#    #+#              #
-#    Updated: 2018/01/09 09:28:42 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/01/09 18:55:36 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ SRC 		= ft_putchar.c ft_putnbr.c ft_putstr.c ft_strdel.c ft_strnew.c \
 				ft_strlen.c ft_strsub.c \
 				ft_printf.c ft_find_types.c ft_init_flags.c ft_type_d.c \
 				ft_type_s.c ft_type_c.c ft_type_x.c ft_type_o.c ft_type_u.c \
-				ft_init_modific.c ft_type_f.c ft_init_specific.c  ft_is_spec.c \
+				ft_init_modific.c ft_init_specific.c ft_is_spec.c \
 				ft_init_default_all.c ft_count_nbrs.c ft_find.c ft_itoa_base.c \
 				ft_unsigned_itoa_base.c ft_init_precision.c ft_init_width.c \
 				ft_print_width.c ft_init_types.c ft_type_lu.c ft_type_llu.c \
@@ -36,7 +36,8 @@ SRC 		= ft_putchar.c ft_putnbr.c ft_putstr.c ft_strdel.c ft_strnew.c \
 				ft_type_jo.c ft_type_zo.c ft_type_p.c ft_type_ln.c \
 				ft_type_lln.c ft_type_hn.c ft_type_hhn.c ft_type_jn.c \
 				ft_type_zn.c ft_type_n.c ft_type_wchar.c ft_type_b.c \
-				ft_type_cl.c ft_strupper.c ft_print_precision.c
+				ft_type_cl.c ft_strupper.c ft_print_precision.c \
+				ft_count_len_bits.c ft_count_len_bit.c ft_type_x_help_ifs.c
 
 all: $(NAME)
 

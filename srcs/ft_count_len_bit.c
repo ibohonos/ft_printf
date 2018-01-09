@@ -1,24 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_precision.c                               :+:      :+:    :+:   */
+/*   ft_count_len_bit.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/07 21:07:13 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 17:37:23 by ibohonos         ###   ########.fr       */
+/*   Created: 2018/01/09 18:22:48 by ibohonos          #+#    #+#             */
+/*   Updated: 2018/01/09 18:23:03 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_precision(t_struct *p, int all)
+int		ft_count_len_bit(wchar_t wchar)
 {
 	int i;
+	int l;
 
-	i = p->precision - all;
-	if (i < 0)
-		p->ret_len += all - p->precision;
-	while (i-- > 0)
-		ft_putchar('0');
+	i = -1;
+	l = 0;
+	if (wchar)
+	{
+		if (wchar <= 0x7F)
+			l++;
+		else if (wchar <= 0x7FF)
+			l += 2;
+		else if (wchar <= 0xFFFF)
+			l += 3;
+		else if (wchar <= 0x1FFFFF)
+			l += 4;
+	}
+	return (l);
 }
