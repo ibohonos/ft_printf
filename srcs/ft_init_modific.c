@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 17:57:39 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 17:34:21 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 19:19:13 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ int	ft_init_modific(char *str, int i, t_struct *p)
 			i += 2;
 		}
 		i = ft_help_init_modific(str, i, p);
+		if (ft_find_types(str[i], -1) == 4)
+			i++;
 	}
 	return (i);
 }
