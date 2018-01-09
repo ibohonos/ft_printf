@@ -6,27 +6,11 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/27 22:09:04 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 00:58:51 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 09:28:56 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-static char		*ft_strupper(char *s)
-{
-	int		i;
-	char	*c;
-
-	i = 0;
-	c = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
-	while (s[i] != '\0')
-	{
-		c[i] = ft_toupper(s[i]);
-		i++;
-	}
-	c[i] = '\0';
-	return (c);
-}
 
 void	ft_type_x(unsigned int type_x, t_struct *p, int b)
 {

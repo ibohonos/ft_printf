@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:55:57 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/08 19:10:24 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 13:58:24 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,23 @@ int	ft_spec_d(char *format, int i, va_list argstr, t_struct *p)
 	return (i);
 }
 
+int	ft_spec_i(char *format, int i, va_list argstr, t_struct *p)
+{
+	if (format[i] == 'i' && p->spec_l != 0)
+		ft_type_ld(va_arg(argstr, long), p);
+	else if (format[i] == 'i' && p->spec_ll != 0)
+		ft_type_lld(va_arg(argstr, long long), p);
+	else if (format[i] == 'i' && p->spec_h != 0)
+		ft_type_hd((short)va_arg(argstr, int), p);
+	else if (format[i] == 'i' && p->spec_hh != 0)
+		ft_type_hhd((signed char)va_arg(argstr, int), p);
+	else if (format[i] == 'i' && p->spec_j != 0)
+		ft_type_jd(va_arg(argstr, intmax_t), p);
+	else if (format[i] == 'i' && p->spec_z != 0)
+		ft_type_zd(va_arg(argstr, long), p);
+	return (i);
+}
+
 int	ft_spec_n(char *format, int i, va_list argstr, t_struct *p)
 {
 	if (format[i] == 'n' && p->spec_l != 0)
@@ -151,6 +168,7 @@ int	ft_init_specific(char *format, int i, va_list argstr, t_struct *p)
 	i = ft_spec_x(format, i, argstr, p);
 	i = ft_spec_lx(format, i, argstr, p);
 	i = ft_spec_d(format, i, argstr, p);
+	i = ft_spec_i(format, i, argstr, p);
 	i = ft_spec_n(format, i, argstr, p);
 	i = ft_spec_o(format, i, argstr, p);
 	i = ft_basic_spec(format, i, argstr, p);

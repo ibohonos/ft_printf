@@ -6,7 +6,7 @@
 #    By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/12/03 16:05:53 by ibohonos          #+#    #+#              #
-#    Updated: 2018/01/08 16:29:57 by ibohonos         ###   ########.fr        #
+#    Updated: 2018/01/09 09:28:42 by ibohonos         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,7 @@ SRC 		= ft_putchar.c ft_putnbr.c ft_putstr.c ft_strdel.c ft_strnew.c \
 				ft_type_jo.c ft_type_zo.c ft_type_p.c ft_type_ln.c \
 				ft_type_lln.c ft_type_hn.c ft_type_hhn.c ft_type_jn.c \
 				ft_type_zn.c ft_type_n.c ft_type_wchar.c ft_type_b.c \
-				ft_type_cl.c ft_print_precision.c
+				ft_type_cl.c ft_strupper.c ft_print_precision.c
 
 all: $(NAME)
 

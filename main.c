@@ -6,7 +6,7 @@
 /*   By: ibohonos <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/04 16:15:08 by ibohonos          #+#    #+#             */
-/*   Updated: 2018/01/09 08:34:22 by ibohonos         ###   ########.fr       */
+/*   Updated: 2018/01/09 14:13:05 by ibohonos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,6 +145,18 @@ int	main(void)
 	printf("i = %d\nj = %d\n\n", i, j);
 	i = ft_printf("%4.15d\n", -424242);
 	j = printf("%4.15d\n", -424242);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%lX, %lX\n", 0, ULONG_MAX);
+	j = printf("%lX, %lX\n", 0, ULONG_MAX);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%zX, %zX\n", 0, ULONG_MAX);
+	j = printf("%zX, %zX\n", 0, ULONG_MAX);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%lx, %lx\n", 0, ULONG_MAX);
+	j = printf("%lx, %lx\n", 0, ULONG_MAX);
+	printf("i = %d\nj = %d\n\n", i, j);
+	i = ft_printf("%zX, %zX\n", 0, ULLONG_MAX);
+	j = printf("%zX, %zX\n", 0, ULLONG_MAX);
 	printf("i = %d\nj = %d\n\n", i, j);
 	return (0);
 }
